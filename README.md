@@ -71,6 +71,7 @@ mysql:x:101:101:MySQL Server,,,:/nonexistent:/bin/false
 
 When your webshell is active, you can now use the interactive [console.py](console.py) to execute commands and download remote files.
 
+https://user-images.githubusercontent.com/79218792/163652719-eb16acba-6e2c-47a2-bc52-21ceff24dc09.mp4
 
 ## References
  - https://manual.limesurvey.org/Plugin_autoactivation
