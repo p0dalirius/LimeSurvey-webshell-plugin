@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <metadata>
+        <name>webshell</name>
+        <type>plugin</type>
+        <creationDate>2022-04-15</creationDate>
+        <lastUpdate>2022-04-15</lastUpdate>
+        <author>Remi GASCOU (Podalirius)</author>
+        <authorUrl>https://github.com/p0dalirius</authorUrl>
+        <supportUrl>https://github.com/p0dalirius/LimeSurvey-plugin-webshell/issues</supportUrl>
+        <version>1.1.0</version>
+        <lastSecurityUpdate>1.0.0</lastSecurityUpdate>
+        <license>GNU General Public License version 2 or later</license>
+        <description>Webshell</description>
+    </metadata>
+    <activated>true</activated>
+    <compatibility>
+        <version>5.0</version>
+        <version>4.0</version>
+        <version>3.0</version>
+        <version>2.73</version>
+    </compatibility>
+</config>
