@@ -13,7 +13,7 @@
 
  - [x] Webshell plugin for LimeSurvey.
  - [x] Execute system commands via an API with `?action=exec`.
- - [x] Download files from the remote system to your attacking machine `?action=download`.
+ - [x] Download files from the remote system to your attacking machine with `?action=download`.
 
 ## Usage
 
@@ -66,6 +66,9 @@ _apt:x:100:65534::/nonexistent:/usr/sbin/nologin
 mysql:x:101:101:MySQL Server,,,:/nonexistent:/bin/false
 ```
 
+You can also download a remote file from a browser with a GET request :
+
+![](./.github/download_file_web.png)
 
 ### Step 3: The interactive console
 
